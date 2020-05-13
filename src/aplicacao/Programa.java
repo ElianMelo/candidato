@@ -12,6 +12,9 @@ public class Programa {
 		
 		int escol, xp; 
 		char viajar, motorista;
+		int ptEscol, ptXp;
+		ptEscol = 0;
+		ptXp = 0;
 		
 		System.out.println("Qual sua escolaridade?");
 		System.out.println("1) Ensino Fundamental");
@@ -29,6 +32,30 @@ public class Programa {
 		viajar = sc.next().charAt(0);
 		System.out.print("Você tem habilitação de motorista (S/N)? ");
 		motorista = sc.next().charAt(0);
+		
+		if(escol == 1) {
+			ptEscol = 10;
+		} else if(escol == 2) {
+			ptEscol = 20;
+		} else if(escol == 3) {
+			ptEscol = 30;
+		} else if(escol == 4) {
+			ptEscol = 40;
+		}
+		
+		if(xp <= 0) {
+			ptXp = 0;
+		} else if(xp <= 2) {
+			ptXp = 10;
+		} else if(xp <= 5) {
+			ptXp = 20;
+		} else {
+			ptXp = 40;
+		}
+		
+		System.out.println("");
+		System.out.println("Pontos por escolaridade: " + ptEscol);
+		System.out.println("Pontos por experiência: " + ptXp);
 		
 		sc.close();
 
