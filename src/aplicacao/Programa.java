@@ -12,9 +12,14 @@ public class Programa {
 		
 		int escol, xp; 
 		char viajar, motorista;
-		int ptEscol, ptXp;
+		int ptEscol, ptXp, qtd;
+		boolean assistente, gerente, analista;
+		assistente = false;
+		gerente = false;
+		analista = false;
 		ptEscol = 0;
 		ptXp = 0;
+		qtd = 0;
 		
 		System.out.println("Qual sua escolaridade?");
 		System.out.println("1) Ensino Fundamental");
@@ -56,6 +61,37 @@ public class Programa {
 		System.out.println("");
 		System.out.println("Pontos por escolaridade: " + ptEscol);
 		System.out.println("Pontos por experiência: " + ptXp);
+		System.out.println("");
+		
+		if(ptEscol >= 20 && motorista == 'S') {
+			assistente = true;
+			qtd++;
+		}
+		
+		if(ptEscol >= 30 && ptXp >= 20) {
+			gerente = true;
+			qtd++;
+		}
+		
+		if(ptEscol >= 30 && ptXp >= 40 && viajar == 'S') {
+			analista = true;
+			qtd++;
+		}
+		
+		if(qtd == 0) {
+			System.out.println("Infelizmente seu perfil não atende a empresa");
+		} else {
+			System.out.println("Você está habilitado para o(s) seguinte(s) cargo(s):");
+			if(assistente == true) {
+				System.out.println("ASSISTENTE");
+			}
+			if(gerente == true) {
+				System.out.println("GERENTE");
+			}
+			if(analista == true) {
+				System.out.println("ANALISTA");
+			}
+		}
 		
 		sc.close();
 
